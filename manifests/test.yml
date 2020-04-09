@@ -18,11 +18,11 @@ update:
   update_watch_time: 5000-60000
 
 instance_groups:
-- name: nodejs-12.16.2-test
+- name: nodejs-12.16.0-test
   azs: [z1]
   instances: 1
   jobs:
-  - name: nodejs-12.16.2-test
+  - name: nodejs-12.16.0-test
     release: nodejs
     properties: {}
   vm_type: default

@@ -1,0 +1,17 @@
+set -e -x
+
+source versions.env
+
+export NODENV_ROOT=${BOSH_INSTALL_TARGET}
+mkdir -p "${NODENV_ROOT}/plugins/node-build"
+
+tar xzf "${NODENV_FILE}" --strip-components=1 -C "${NODENV_ROOT}" "${NODENV_FOLDER}"
+tar xzf "${NODE_BUILD_FILE}" --strip-components=1 -C "${NODENV_ROOT}/plugins/node-build" "${NODE_BUILD_FOLDER}"
+
+export PATH="${NODENV_ROOT}/bin:$PATH"
+eval "$(nodenv init -)"
+
+nodenv rehash
+nodenv install "$NODE_VERSION"
+
+cp runtime.env ${BOSH_INSTALL_TARGET}/runtime.env

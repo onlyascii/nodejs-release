@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -eux
+
+source /var/vcap/packages/nodejs-12.16.0/runtime.env
+cd /var/vcap/packages/nodejs-12.16.0/
+
+node -v
