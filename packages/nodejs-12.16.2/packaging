@@ -1,0 +1,16 @@
+set -e -x
+
+NODE_VERSION=12.16.2
+
+export NODENV_ROOT=${BOSH_INSTALL_TARGET}
+mkdir -p "${NODENV_ROOT}"
+mkdir -p "${NODENV_ROOT}/plugins"
+
+git clone https://github.com/nodenv/nodenv.git "${NODENV_ROOT}"
+git clone https://github.com/nodenv/node-build.git "${NODENV_ROOT}/plugins/node-build"
+
+export PATH="${NODENV_ROOT}/bin:$PATH"
+eval "$(nodenv init -)"
+
+nodenv rehash
+nodenv install "$NODE_VERSION"
