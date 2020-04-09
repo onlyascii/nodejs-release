@@ -5,3 +5,5 @@ dependencies: []
 
 files:
 - runtime.env
+- node-build-4.8.0.tar.gz
+- nodenv-1.3.2.tar.gz
